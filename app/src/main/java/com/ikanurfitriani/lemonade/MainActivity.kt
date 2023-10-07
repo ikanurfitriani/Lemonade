@@ -66,6 +66,7 @@ fun LemonadeApp() {
 
     // Untuk menyusun antarmuka pengguna aplikasi dengan komponen lain
     Scaffold(
+        // Komponen TopAppBar yang menampilkan baris atas aplikasi
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
@@ -83,15 +84,19 @@ fun LemonadeApp() {
             )
         }
     ) { innerPadding ->
+        // Konten utama aplikasi
         Surface(
+            // Untuk mengatur warna latar belakang
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
                 .background(MaterialTheme.colorScheme.tertiaryContainer),
             color = MaterialTheme.colorScheme.background
         ) {
+            // Ekspresi when yang digunakan untuk menentukan tampilan konten sesuai dengan currentStep
             when (currentStep) {
                 1 -> {
+                    // Pemanggilan komponen LemonTextAndImage yang digunakan untuk menampilkan konten untuk setiap langkah dalam pembuatan lemonade
                     LemonTextAndImage(
                         textLabelResourceId = R.string.lemon_select,
                         drawableResourceId = R.drawable.lemon_tree,
@@ -103,6 +108,7 @@ fun LemonadeApp() {
                     )
                 }
                 2 -> {
+                    // Pemanggilan komponen LemonTextAndImage yang digunakan untuk menampilkan konten untuk setiap langkah dalam pembuatan lemonade
                     LemonTextAndImage(
                         textLabelResourceId = R.string.lemon_squeeze,
                         drawableResourceId = R.drawable.lemon_squeeze,
@@ -141,7 +147,9 @@ fun LemonadeApp() {
     }
 }
 
+// Anotasi yang menandakan bahwa fungsi LemonTextAndImage adalah komponen Composable
 @Composable
+// Fungsi yang digunakan untuk membuat komponen yang menampilkan teks dan gambar lemon sesuai dengan langkah saat ini dalam pembuatan lemonade
 fun LemonTextAndImage(
     textLabelResourceId: Int,
     drawableResourceId: Int,
@@ -149,6 +157,7 @@ fun LemonTextAndImage(
     onImageClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    // Untuk mengatur elemen-elemen dalam tampilan
     Box(
         modifier = modifier
     ) {
