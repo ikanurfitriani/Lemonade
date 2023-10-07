@@ -1,5 +1,7 @@
+// Nama package dari aplikasi yang dibuat
 package com.ikanurfitriani.lemonade
 
+// Import library yang akan digunakan
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -41,22 +43,28 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Blok untuk menentukan tata letak aktivitas tempat fungsi composable
         setContent {
             LemonadeTheme {
+                // Memanggil fungsi utama yaitu LemonadeApp dari aplikasi
                 LemonadeApp()
             }
         }
     }
 }
 
+// Anotasi yang menunjukkan penggunaan fitur eksperimental dari Material 3
 @OptIn(ExperimentalMaterial3Api::class)
+// Anotasi yang menandakan bahwa fungsi LemonadeApp adalah komponen Composable
 @Composable
+// Fungsi utama yang akan membangun UI aplikasi Lemonade
 fun LemonadeApp() {
 
     var currentStep by remember { mutableStateOf(1) }
 
     var squeezeCount by remember { mutableStateOf(0) }
 
+    // Untuk menyusun antarmuka pengguna aplikasi dengan komponen lain
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
